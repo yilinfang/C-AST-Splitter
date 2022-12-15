@@ -1,0 +1,6 @@
+digraph test_AST {
+  // graph-vertices
+  n1  [label="ROOT: test.java"];
+  // graph-edges
+  // end-of-graph
+}

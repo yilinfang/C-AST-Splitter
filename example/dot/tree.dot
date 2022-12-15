@@ -1,0 +1,60 @@
+digraph tree {
+  // graph-vertices
+  n1  [label="ROOT: 0_qemu_00af685fc974e4941ef2d309a2e8818d311a370c16152.c"];
+  n2  [label="METHOD_BODY"];
+  n3  [label="IF"];
+  n4  [label="STATEMENTS_BLOCK"];
+  n5  [label="METHOD"];
+  n6  [label="RETURN: void"];
+  n7  [label="NAME: ppc_set_irq"];
+  n8  [label="PARAMS"];
+  n9  [label="VAR"];
+  n10  [label="NAME: env"];
+  n11  [label="VAR"];
+  n12  [label="NAME: n_IRQ"];
+  n13  [label="VAR"];
+  n14  [label="NAME: level"];
+  n15  [label="NESTED_IF"];
+  n16  [label="COND:  env -> pending_interrupts == 0 "];
+  n17  [label="BLOCK"];
+  n18  [label=" cpu_reset_interrupt ( env , CPU_INTERRUPT_HARD ) ; "];
+  n19  [label="IF"];
+  n20  [label="COND:  level "];
+  n21  [label="BLOCK"];
+  n22  [label=" env -> pending_interrupts |= 1 << n_IRQ ; "];
+  n23  [label=" cpu_interrupt ( env , CPU_INTERRUPT_HARD ) ; "];
+  n24  [label="ELSE"];
+  n25  [label="BLOCK"];
+  n26  [label=" env -> pending_interrupts &= ~ ( 1 << n_IRQ ) ; "];
+  n27  [label="NESTED_IF"];
+  n28  [label="STATEMENTS_BLOCK"];
+  n29  [label=" ( PPC_DEBUG_IRQ ) if ( loglevel & CPU_LOG_INT ) "];
+  n30  [label=" fprintf ( logfile , '%s: %p n_IRQ %d level %d => pending %08x req %08x\\n' , __func__ , env , n_IRQ , level , env -> pending_interrupts , env -> interrupt_request ) ; "];
+  // graph-edges
+  n1 -> n2;
+  n2 -> n3;
+  n2 -> n4;
+  n5 -> n6;
+  n5 -> n7;
+  n5 -> n8;
+  n8 -> n9;
+  n9 -> n10;
+  n8 -> n11;
+  n11 -> n12;
+  n8 -> n13;
+  n13 -> n14;
+  n15 -> n16;
+  n15 -> n17;
+  n17 -> n18;
+  n19 -> n20;
+  n19 -> n21;
+  n21 -> n22;
+  n21 -> n23;
+  n19 -> n24;
+  n24 -> n25;
+  n25 -> n26;
+  n25 -> n27;
+  n28 -> n29;
+  n28 -> n30;
+  // end-of-graph
+}

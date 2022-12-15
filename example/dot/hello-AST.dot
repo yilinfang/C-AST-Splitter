@@ -1,0 +1,34 @@
+digraph hello_AST {
+  // graph-vertices
+  n1  [label="ROOT: hello.c"];
+  n2  [label="METHOD_BODY"];
+  n3  [label="STATEMENTS_BLOCK"];
+  n4  [label="METHOD"];
+  n5  [label="RETURN: int"];
+  n6  [label="NAME: main"];
+  n7  [label="VAR"];
+  n8  [label="STATEMENTS_BLOCK"];
+  n9  [label="TYPE: int"];
+  n10  [label="NAME: inta"];
+  n11  [label="VAR"];
+  n12  [label="TYPE: int"];
+  n13  [label="NAME: m"];
+  n14  [label="INIT:  =  0 "];
+  n15  [label=" printf ( 'Hello!\\n' ) ; "];
+  n16  [label=" return 0 ; "];
+  // graph-edges
+  n1 -> n2;
+  n2 -> n3;
+  n4 -> n5;
+  n4 -> n6;
+  n8 -> n7;
+  n7 -> n9;
+  n7 -> n10;
+  n8 -> n11;
+  n11 -> n12;
+  n11 -> n13;
+  n11 -> n14;
+  n8 -> n15;
+  n8 -> n16;
+  // end-of-graph
+}
